@@ -1,2 +1,2 @@
 #!/bin/bash
-docker exec -u root -it tensorflow_workspace /bin/bash
+docker exec -u sitb157 -w /home/sitb157 -it tensorflow_workspace /bin/bash

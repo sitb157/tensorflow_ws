@@ -1,4 +1,4 @@
-version: '3'
+version: '3' 
 services:
     tensorflow-workspace:
       image: sitb157/tensorflow_workspace
@@ -15,8 +15,14 @@ services:
             - USER_NAME=${USER_NAME}
       user: ${USER_NAME}
       volumes:
-          - /tmp/.X11-unix:/tmp/.X11-unix:rw
-          - $HOME/.Xauthority:/root/.Xauthority:rw
-          - ../workspace:/root/workspace
-          - ../datas:/root/datas
-      command: sleep infinity
+          #- /tmp/.X11-unix:/tmp/.X11-unix:rw
+          #- $HOME/.Xauthority:/root/.Xauthority:rw
+          - ../workspace:/tf/notebooks  
+      deploy:
+          resources:
+              reservations:
+                  devices:
+                  - driver: nvidia
+                    count: all
+                    capabilities: [gpu]
+      restart: always
