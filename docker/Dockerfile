@@ -1,4 +1,4 @@
-FROM tensorflow/tensorflow:latest-gpu-py3-jupyter
+FROM tensorflow/tensorflow:latest-gpu-py3
 
 ARG USER_NAME
 ARG USER_ID=1000

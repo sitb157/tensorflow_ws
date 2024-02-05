@@ -17,7 +17,7 @@ services:
       volumes:
           #- /tmp/.X11-unix:/tmp/.X11-unix:rw
           #- $HOME/.Xauthority:/root/.Xauthority:rw
-          - ../workspace:/tf/notebooks  
+          - ../workspace:/sitb157/workspace
       deploy:
           resources:
               reservations:
@@ -26,3 +26,4 @@ services:
                     count: all
                     capabilities: [gpu]
       restart: always
+      command: sleep infinity
