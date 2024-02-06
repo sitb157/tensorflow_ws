@@ -1,4 +1,4 @@
-FROM tensorflow/tensorflow:latest-gpu-py3
+FROM tensorflow/tensorflow:nightly
 
 ARG USER_NAME
 ARG USER_ID=1000
@@ -9,9 +9,9 @@ RUN groupadd ${USER_NAME} --gid ${USER_ID}\
 USER root
 
 # Run update
-RUN rm /etc/apt/sources.list.d/cuda.list
-RUN rm /etc/apt/sources.list.d/nvidia-ml.list
-RUN apt-key del 7fa2af80 && apt-key adv --fetch-keys http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/3bf863cc.pub
+#RUN rm /etc/apt/sources.list.d/cuda.list
+#RUN rm /etc/apt/sources.list.d/nvidia-ml.list
+#RUN apt-key del 7fa2af80 && apt-key adv --fetch-keys http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/3bf863cc.pub
 RUN apt-get update 
 
 # Install pip

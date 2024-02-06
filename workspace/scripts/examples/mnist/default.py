@@ -1,6 +1,4 @@
 import tensorflow as tf
-import numpy as np
-import matplotlib.pyplot as plt
 
 ### Load mnist Data
 mnist = tf.keras.datasets.mnist
