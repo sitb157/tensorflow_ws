@@ -1,5 +1,8 @@
 logs/
 __pycache__/
+datas/
 
 *.h5
 *.pb
+*.xml
+*.keras
