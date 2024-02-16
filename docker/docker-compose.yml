@@ -1,23 +1,20 @@
 version: '3' 
 services:
     tensorflow-workspace:
-      image: sitb157/tensorflow_workspace
+      image: ${USER_NAME}/tensorflow_workspace
       container_name: tensorflow_workspace 
       privileged: true
       environment:
-          #- "DISPLAY"
-          #- "QT_X11_NO_MITSHM=1"
           - DISPLAY=${IP}:0.0
       network_mode: host
       build:
-          context: ./
+          context: ../tensorflow_ws
           args: 
             - USER_NAME=${USER_NAME}
       user: ${USER_NAME}
       volumes:
-          #- /tmp/.X11-unix:/tmp/.X11-unix:rw
-          #- $HOME/.Xauthority:/root/.Xauthority:rw
-          - ../workspace:/sitb157/workspace
+          - ../tensorflow_ws/workspace:/home/${USER_NAME}/workspace
+          - ../datas:/home/${USER_NAME}/datas
       deploy:
           resources:
               reservations:
